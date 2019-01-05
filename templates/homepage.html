@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+<meta charset="utf-8">
+<title>Models App</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Portfolio Item Heading -->
+<div class="container">
+      <h1 class="my-4">Nescode Team
+        <small>management and developer</small>
+      </h1>
+
+      <!-- Portfolio Item Row -->
+      <div class="row">
+
+        <div class="col-md-8">
+          <img class="img-fluid" src="{{ person.image.url }}" alt="">
+        </div>
+        {% for person in persons %}
+        <div class="col-md-4">
+          <h3 class="my-3">{{ person.heading }}</h3>
+          <p>{{ person.about }}</p>
+          <h3 class="my-3">{{ person.birthday }}</h3>
+          <ul>
+            <li>Name: <small>{{ person.salutation }} {{ person.User }}</small></li>
+            <li>Gender: <small>{{ person.gender }}</small></li>
+            <li>Address: <small>{{ person.address }}</small></li>
+          </ul>
+        </div>
+        {% endfor %}
+      </div> <!--row end-->
+</div> <!--Container end-->
+      
+
+{% endblock %}
