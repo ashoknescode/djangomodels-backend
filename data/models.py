@@ -8,7 +8,8 @@ class Person(models.Model):
 	heading = models.CharField(max_length=100)
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
 	User   = models.CharField(max_length= 50)
-	about = models.CharField(max_length=800)
+	# about = models.CharField(max_length=800)
+	text = models.TextField(null=True)
 	ABBREVIATION_CHOICE = (
 		('Mr', 'Mister'),
 		('Mis', 'Misses'),
@@ -24,7 +25,10 @@ class Person(models.Model):
 		)
 	gender = models.CharField(max_length=10, choices=CATEGRY_CHOICE)
 	birthday = models.DateField()
-	address = models.CharField(max_length=255)
+	contact = models.CharField(max_length=12, null=True, blank=True)
+	url = models.URLField(null=True)
+	email = models.CharField(max_length=30)
+	address = models.TextField(null=True, blank=True)
 	image = models.ImageField(upload_to='img', blank=True)
 
 
